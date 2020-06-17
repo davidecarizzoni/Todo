@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpCommunicationsService } from '../http-communications/http-communications.service';
 import { Todo } from '../model/todo.interface';
 import { Observable } from 'rxjs';
 import { CoreModule } from '../core.module';
+import { HttpCommunicationsService } from '../http-communication/http-communication.service';
 
 @Injectable()
 export class TodosServerService {
