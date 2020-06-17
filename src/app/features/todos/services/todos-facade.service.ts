@@ -22,6 +22,13 @@ export class TodosFacadeService {
     });
   }
 
+  addTodo(todo: Todo){
+    this.todosServerService.addTodo(todo).subscribe(() => {
+      this.getAllTodos();
+      this.goToAll();
+    })
+  }
+
   editTodo(todo: Todo) {
     this.todosServerService.updateTodo(todo).subscribe(() => {
       this.getAllTodos();
@@ -42,6 +49,10 @@ export class TodosFacadeService {
   
   goToEdit(id: number) {
     this.router.navigateByUrl('/todos/edit/' + id);
+  }
+
+  goToAll(){
+    this.router.navigateByUrl('/todos');
   }
 
 }

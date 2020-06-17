@@ -20,4 +20,5 @@ export class TodoPreviewComponent {
     this.detailEvent.emit();
   }
 
+
 }
