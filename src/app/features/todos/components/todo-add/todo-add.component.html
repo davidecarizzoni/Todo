@@ -1,0 +1,3 @@
+<div class="container">
+    <app-todo-form (formSubmitEvent)="addForm($event)" [todo]="todo | async" (undoEvent)="undo($event)"></app-todo-form>
+</div>
