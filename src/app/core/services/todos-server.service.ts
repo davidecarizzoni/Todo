@@ -24,4 +24,8 @@ export class TodosServerService {
   addTodo(todo: Todo): Observable<Todo>{
     return this.httpCommunications.retrievePostCall("todos/", todo)
   }
+
+  removeTodoById(id: number){
+    return this.httpCommunications.retrieveDeleteCall("todos/" + id)
+  }
 }

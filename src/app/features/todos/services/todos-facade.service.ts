@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { TodosServerService } from 'src/app/core/services/todos-server.service';
 import { Store } from '@ngrx/store';
-import { addTodo, editTodo } from 'src/app/redux/todos/todos.actions';
+import { addTodo, editTodo, initTodos} from 'src/app/redux/todos/todos.actions';
 import { Router } from '@angular/router';
 import { Todo } from 'src/app/core/model/todo.interface';
 
@@ -26,6 +26,19 @@ export class TodosFacadeService {
     });
   }
 
+  initTodo(){
+    this.todosServerService.retrieveAllTodos().subscribe((todos: Todo[])=>{
+      this.store.dispatch(initTodos({todos}));
+    });
+  }
+
+  removeTodo(id: number){
+    this.todosServerService.removeTodoById(id).subscribe((any) => {
+      this.initTodo();
+    });
+    
+  }
+
   goToTodosHome() {
     this.router.navigateByUrl('/todos');
   }
@@ -37,5 +50,10 @@ export class TodosFacadeService {
   goToEdit(id: number) {
     this.router.navigateByUrl('/todos/edit/' + id);
   }
+
+  goToHome(){
+    this.router.navigateByUrl('/todos');
+  }
+
 
 }

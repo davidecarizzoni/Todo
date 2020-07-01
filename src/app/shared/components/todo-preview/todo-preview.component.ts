@@ -14,10 +14,17 @@ export class TodoPreviewComponent {
   @Output()
   detailEvent: EventEmitter<void> = new EventEmitter();
 
+  @Output()
+  removeEvent: EventEmitter<void> = new EventEmitter();
+
   constructor() { }
 
   detailClick() {
     this.detailEvent.emit();
+  }
+
+  removeClick() {
+    this.removeEvent.emit();
   }
 
 

@@ -9,88 +9,16 @@
   ],
   "todos": [
     {
-      "id": 0,
-      "title": "Lezione 10/06/2020",
-      "description": "Lezione accademia Bergamo, corso Angular avanzato",
-      "steps": [
-        {
-          "id": 0,
-          "done": false,
-          "title": "Appello"
-        },
-        {
-          "id": 1,
-          "done": false,
-          "title": "Ripassp"
-        },
-        {
-          "id": 2,
-          "done": false,
-          "title": "Teoria"
-        },
-        {
-          "id": 3,
-          "done": false,
-          "title": "Pratica"
-        }
-      ]
-    },
-    {
-      "id": 0,
-      "title": "Lezione 17/06/2020",
-      "description": "Creazione progetto",
-      "steps": [
-        {
-          "id": 0,
-          "done": false,
-          "title": "Core"
-        },
-        {
-          "id": 1,
-          "done": false,
-          "title": "Features"
-        },
-        {
-          "id": 2,
-          "done": false,
-          "title": "Shared"
-        },
-        {
-          "id": 3,
-          "done": false,
-          "title": "ADD-TODOS"
-        }
-      ]
-    },
-    {
       "id": 1,
-      "title": "sdfds",
-      "description": "fsd",
-      "steps": []
-    },
-    {
-      "id": 2,
-      "title": "sdsd",
-      "description": "sdsdsd",
-      "steps": []
-    },
-    {
-      "id": 3,
-      "title": "asas",
-      "description": "asas",
-      "steps": []
-    },
-    {
-      "id": 4,
-      "title": "hhhh",
-      "description": "hhhh",
-      "steps": []
-    },
-    {
-      "id": 5,
-      "title": "hjhjh",
-      "description": "hj",
-      "steps": []
+      "title": "ghgh",
+      "description": "ghgh",
+      "steps": [
+        {
+          "id": null,
+          "done": true,
+          "title": "hgh"
+        }
+      ]
     }
   ]
 }
