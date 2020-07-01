@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './redux/todos/todos.reducers';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -12,7 +15,9 @@ import { CoreModule } from './core/core.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule
+    CoreModule,
+    StoreModule.forRoot({ todoState: reducer })
+    //dichiariamo lo state del progetto, che noi vogliamo mantenere aggiornato
   ],
   providers: [],
   bootstrap: [AppComponent]
