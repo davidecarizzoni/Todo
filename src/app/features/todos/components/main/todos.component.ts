@@ -1,7 +1,9 @@
+import { Store, select } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { TodosFacadeService } from '../../services/todos-facade.service';
 import { Observable } from 'rxjs';
 import { Todo } from 'src/app/core/model/todo.interface';
+import { selectTodos } from 'src/app/redux';
 
 @Component({
   selector: 'app-todos',
@@ -11,13 +13,12 @@ import { Todo } from 'src/app/core/model/todo.interface';
 export class TodosComponent implements OnInit {
 
   get todosList(): Observable<Todo[]> {
-    return this.todosFacadeService.tods$;
+    return this.store.pipe(select(selectTodos));
   }
 
-  constructor(private todosFacadeService: TodosFacadeService) { }
+  constructor(private todosFacadeService: TodosFacadeService, private store: Store) { }
 
   ngOnInit(): void {
-    this.todosFacadeService.getAllTodos();
   }
 
   showDetail(todo: Todo) {

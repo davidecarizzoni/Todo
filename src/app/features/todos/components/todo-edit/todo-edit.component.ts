@@ -1,30 +1,36 @@
 import { TodosFacadeService } from './../../services/todos-facade.service';
-import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Todo } from 'src/app/core/model/todo.interface';
-import { Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { Store, select } from '@ngrx/store';
+import { getTodoById } from 'src/app/redux';
+import { filter, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-todo-edit',
   templateUrl: './todo-edit.component.html',
   styleUrls: ['./todo-edit.component.scss']
 })
-export class TodoEditComponent implements OnInit {
+export class TodoEditComponent implements OnInit, OnDestroy {
+  private subscription: Subscription = new Subscription();
+  todo: Todo;
 
-  get todo(): Observable<Todo> {
-    return this.todosFacadeService.todoSelected$;
-  }
-
-  constructor(private todosFacadeService: TodosFacadeService, private route: ActivatedRoute) {
+  constructor(private todosFacadeService: TodosFacadeService, private route: ActivatedRoute, private store: Store) {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      if(params != null && params['id'] != null){
-        this.todosFacadeService.getTodoById(params['id']);
-      }
-    });
+    this.subscription.add(this.route.params.pipe(
+      filter(params => params != null && params['id'] != null),
+      switchMap(params => this.store.pipe(select(getTodoById, { id: Number(params['id']) })))
+    ).subscribe(todo => {
+      this.todo = todo;
+    }));
+    
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   editForm(todo: Todo) {
