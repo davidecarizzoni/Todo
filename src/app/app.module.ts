@@ -7,6 +7,8 @@ import { CoreModule } from './core/core.module';
 
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './redux/todos/todos.reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment'; // Angular CLI environment
 
 @NgModule({
   declarations: [
@@ -16,8 +18,12 @@ import { reducer } from './redux/todos/todos.reducers';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    StoreModule.forRoot({ todoState: reducer })
+    StoreModule.forRoot({ todoState: reducer }),
     //dichiariamo lo state del progetto, che noi vogliamo mantenere aggiornato
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
