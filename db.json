@@ -2,9 +2,10 @@
   "users": [
     {
       "id": 0,
-      "username": "LukeSkywa",
-      "name": "Luca",
-      "surname": "Alicata"
+      "username": "davidecarizzoni ",
+      "name": "Davide",
+      "surname": "Carizzoni",
+      "password": "12345"
     }
   ],
   "todos": [
@@ -19,6 +20,12 @@
           "title": "hgh"
         }
       ]
+    },
+    {
+      "id": 2,
+      "title": "Compito",
+      "description": "Login with NgRx",
+      "steps": []
     }
   ]
 }
