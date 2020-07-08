@@ -10,7 +10,7 @@ import { createSelector } from '@ngrx/store';
 //praticamente copia dello state dell'applicazione
 export interface AppState {
     todoState: TodoState;
-    usersStae: UserState;
+    usersState: UserState;
 }
 
 //stato attuale che viene aggiornato in base al todo state, di tipo Appstate
@@ -34,7 +34,7 @@ export const getFirstTodo = createSelector(
     (state: TodoState) => state.todos.length > 0 ? state.todos[0] : null
 );
 
-export const selectUsersState = (state: AppState) => state.usersStae;
+export const selectUsersState = (state: AppState) => state.usersState;
 export const getCurrentUser = createSelector(
     selectUsersState,
     (state: UserState) => state.currentUser

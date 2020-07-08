@@ -1,11 +1,11 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { User } from 'src/app/core/model/user.interface';
-import { FormBuilder, FormGroup } from '@angular/forms';
+
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
+import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/core/model/todo.interface';
+import { map, filter } from 'rxjs/operators';
 import { getFirstTodo, getCurrentUser } from 'src/app/redux';
-import { filter, map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-home',
@@ -13,10 +13,8 @@ import { filter, map } from 'rxjs/operators';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  
-  constructor(private store:Store){}
 
-  get todo(): Observable<Todo> {
+  get todo(): Observable<Todo>{
     return this.store.pipe(select(getFirstTodo));
   }
 
@@ -27,9 +25,11 @@ export class HomeComponent implements OnInit {
       map(user => user.name)
     );
   }
-  
-  ngOnInit(): void {}
 
-  
+  constructor(private store: Store) { 
+  }
+
+  ngOnInit(): void {
+  }
 
 }
