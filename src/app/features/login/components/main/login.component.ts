@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
 
   doLogin() {
     this.loginService.executeLogin(this.loginForm.get('username').value);
+    console.log(this.loginForm.get('username').value)
   }
 
 }

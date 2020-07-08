@@ -1,6 +1,11 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { User } from 'src/app/core/model/user.interface';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+import { Todo } from 'src/app/core/model/todo.interface';
+import { getFirstTodo, getCurrentUser } from 'src/app/redux';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -8,49 +13,23 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  
+  constructor(private store:Store){}
 
-  showHideDemo = false;
-  demoTitle: string;
-  userForm: FormGroup;
-
-  user: User = {
-    name: '',
-    surname: ''
+  get todo(): Observable<Todo> {
+    return this.store.pipe(select(getFirstTodo));
   }
 
-  list: User[]= [
-    {name: 'Luca', surname: 'Alicata'},
-    {name: 'Thomas', surname: 'Rossi'},
-    {name: 'Amanpreet', surname: 'Singh'},
-  ];
+  get user(): Observable<string> {
+    return this.store.pipe(
+      select(getCurrentUser),
+      filter(user => !!user),
+      map(user => user.name)
+    );
+  }
+  
+  ngOnInit(): void {}
 
-  constructor(private fb: FormBuilder) { 
-    this.userForm = this.fb.group({
-      name: 'nome',
-      surname: 'sdfdsf'
-    })
-  }
-  ngAfterViewInit(): void {
-    console.log('ngAfterViewInit HOME');
-  }
-
-  ngOnInit(): void {
-    console.log('ngOnInit HOME');
-  }
-
-  trackList(index, item){
-    return index+item.name+item.surname;
-  }
-
-  removeItem(index){
-    this.list.splice(index, 1);
-  }
-
-  addItem(){
-    this.list.push(this.userForm.value)
-    this.user.name= this.userForm.get('name').value;
-    this.user.surname= this.userForm.get('surname').value;
-    // this.user = this.userForm.value;
-  }
+  
 
 }

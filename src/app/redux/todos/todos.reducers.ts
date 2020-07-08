@@ -14,7 +14,7 @@ export const initialState: TodoState = {
 
 // reducer, gestione dello state
 // gestione simile allo switch normale
-const todosReducer = createReducer(
+const todosReducersFun = createReducer(
     initialState, //stato inizialle dell'applicativo
     on(initTodos, (state, { todos }) => ({ ...state, todos: todos })),
     on(addTodo, (state, { todo }) => ({ ...state, todos: [...state.todos, todo] })),
@@ -27,6 +27,6 @@ const todosReducer = createReducer(
 //initial state che ho dichiarato nel app module ts
 
 // effettiva esecuzione dei reducers
-export function reducer(state: TodoState | undefined, action: Action) {
-    return todosReducer(state, action);
+export function todosReducer(state: TodoState | undefined, action: Action) {
+    return todosReducersFun(state, action);
 }

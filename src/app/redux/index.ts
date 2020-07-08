@@ -4,11 +4,13 @@
 //utilizzo variabili observable per rimanere in ascolto dello state
 
 import { TodoState } from './todos/todos.reducers';
+import { UserState } from './user/user.reducers';
 import { createSelector } from '@ngrx/store';
 
 //praticamente copia dello state dell'applicazione
 export interface AppState {
     todoState: TodoState;
+    usersStae: UserState;
 }
 
 //stato attuale che viene aggiornato in base al todo state, di tipo Appstate
@@ -31,3 +33,9 @@ export const getFirstTodo = createSelector(
     selectTodosState,
     (state: TodoState) => state.todos.length > 0 ? state.todos[0] : null
 );
+
+export const selectUsersState = (state: AppState) => state.usersStae;
+export const getCurrentUser = createSelector(
+    selectUsersState,
+    (state: UserState) => state.currentUser
+) 
