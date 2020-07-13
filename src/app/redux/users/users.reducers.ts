@@ -2,7 +2,7 @@
 
 import { createReducer, on, Action } from '@ngrx/store'
 import { User } from 'src/app/core/model/user.interface';
-import { saveCurrentUser } from './user.action';
+import { saveCurrentUser } from './users.action';
 
 
 // export interface TodoState {
@@ -16,11 +16,11 @@ import { saveCurrentUser } from './user.action';
 //     executed: false
 // };
 
-export interface UserState {
-   currentUser: User;
+export interface UsersState {
+    currentUser: User;
 }
 
-export const initialState: UserState = {
+export const initialState: UsersState = {
     currentUser: null
 }
 
@@ -30,6 +30,6 @@ const usersReducers = createReducer(
     ({...state, currentUser: user}))
 );
 
-export function usersReducer(state: UserState | undefined, action: Action){
+export function usersReducer(state: UsersState | undefined, action: Action){
     return usersReducers(state, action);
 }

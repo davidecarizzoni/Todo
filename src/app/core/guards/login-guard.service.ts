@@ -2,7 +2,7 @@
 import { Store } from '@ngrx/store';
 import { Injectable } from '@angular/core';
 import { CanLoad, Router } from '@angular/router';
-import { saveCurrentUser } from 'src/app/redux/user/user.action';
+import { saveCurrentUser } from 'src/app/redux/users/users.action';
 
 
 @Injectable({
@@ -11,6 +11,7 @@ import { saveCurrentUser } from 'src/app/redux/user/user.action';
 export class LoginGuardService implements CanLoad {
 
   constructor(private router: Router, private store: Store) { }
+  
   canLoad(route: import("@angular/router").Route, segments: import("@angular/router").UrlSegment[]): boolean | import("rxjs").Observable<boolean> | Promise<boolean> {
     if (sessionStorage.getItem("user") != null) {
       this.store.dispatch(saveCurrentUser({user: JSON.parse(sessionStorage.getItem("user"))}));

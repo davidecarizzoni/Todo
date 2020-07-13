@@ -4,7 +4,7 @@ import { AuthService } from './../../../core/services/auth.service';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/core/model/user.interface';
-import { saveCurrentUser } from 'src/app/redux/user/user.action';
+import { saveCurrentUser } from 'src/app/redux/users/users.action';
 
 @Injectable()
 export class LoginService {

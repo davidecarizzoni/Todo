@@ -4,8 +4,8 @@ import { Todo } from 'src/app/core/model/todo.interface';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { Store, select } from '@ngrx/store';
-import { getTodoById } from 'src/app/redux';
 import { filter, switchMap } from 'rxjs/operators';
+import { getTodoById } from 'src/app/redux/todos';
 
 @Component({
   selector: 'app-todo-edit',

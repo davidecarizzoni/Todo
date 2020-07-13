@@ -1,10 +1,10 @@
-
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/core/model/todo.interface';
 import { map, filter } from 'rxjs/operators';
-import { getFirstTodo, getCurrentUser } from 'src/app/redux';
+import { getFirstTodo } from 'src/app/redux/todos';
+import { getCurrentUser } from 'src/app/redux/users';
 
 
 @Component({

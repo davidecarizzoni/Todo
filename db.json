@@ -9,18 +9,6 @@
   ],
   "todos": [
     {
-      "id": 1,
-      "title": "ghgh",
-      "description": "ghgh",
-      "steps": [
-        {
-          "id": null,
-          "done": true,
-          "title": "hgh"
-        }
-      ]
-    },
-    {
       "id": 2,
       "title": "Compito",
       "description": "Login with NgRx",

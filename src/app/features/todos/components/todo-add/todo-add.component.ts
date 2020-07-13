@@ -1,4 +1,3 @@
-
 import { TodosFacadeService } from './../../services/todos-facade.service';
 import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/core/model/todo.interface';
