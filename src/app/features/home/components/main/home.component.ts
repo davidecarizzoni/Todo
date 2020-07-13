@@ -14,10 +14,13 @@ import { getFirstTodo, getCurrentUser } from 'src/app/redux';
 })
 export class HomeComponent implements OnInit {
 
+  //get todos using actions
   get todo(): Observable<Todo>{
     return this.store.pipe(select(getFirstTodo));
   }
 
+
+  //get users using actions
   get user(): Observable<string> {
     return this.store.pipe(
       select(getCurrentUser),
@@ -26,8 +29,7 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  constructor(private store: Store) { 
-  }
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
   }

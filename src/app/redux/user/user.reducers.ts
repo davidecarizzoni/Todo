@@ -16,20 +16,20 @@ import { saveCurrentUser } from './user.action';
 //     executed: false
 // };
 
-export interface UserState {
+export interface UsersState {
    currentUser: User;
 }
 
-export const initialState: UserState = {
+export const initialState: UsersState = {
     currentUser: null
 }
 
-const usersReducers = createReducer(
+const usersReducersFun = createReducer(
     initialState,
     on(saveCurrentUser, (state, {user}) => 
     ({...state, currentUser: user}))
 );
 
-export function usersReducer(state: UserState | undefined, action: Action){
-    return usersReducers(state, action);
+export function usersReducer(state: UsersState | undefined, action: Action){
+    return usersReducersFun(state, action);
 }
