@@ -1,5 +1,5 @@
 import { UsersState, usersReducer } from './users/users.reducers';
-import { TodoState, todosReducer } from './todos/todos.reducers';
+import { TodoState, todoReducer } from './todos/todos.reducers';
 import { ActionReducerMap } from '@ngrx/store';
 
 export interface AppState {
@@ -8,6 +8,6 @@ export interface AppState {
 }
 
 export const reducers: ActionReducerMap<AppState> = {
-    todoState: todosReducer,
+    todoState: todoReducer,
     usersState: usersReducer
 };

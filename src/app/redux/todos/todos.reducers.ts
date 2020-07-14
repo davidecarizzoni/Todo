@@ -27,6 +27,6 @@ const todosReducersFun = createReducer(
 //initial state che ho dichiarato nel app module ts
 
 // effettiva esecuzione dei reducers
-export function todosReducer(state: TodoState | undefined, action: Action) {
+export function todoReducer(state: TodoState | undefined, action: Action) {
     return todosReducersFun(state, action);
 }
