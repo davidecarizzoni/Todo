@@ -12,6 +12,8 @@ import { selectTodos } from 'src/app/redux/todos';
 })
 export class TodosComponent implements OnInit {
 
+  viewed: boolean = false;
+
   get todosList(): Observable<Todo[]> {
     return this.store.pipe(select(selectTodos));
   }
@@ -24,6 +26,8 @@ export class TodosComponent implements OnInit {
 
   showDetail(todo: Todo) {
     this.todosFacadeService.goToDetail(todo.id);
+    this.viewed = !this.viewed;
+    console.log(this.viewed);
   }
 
   removeTodo(todo: Todo){

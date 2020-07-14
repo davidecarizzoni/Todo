@@ -8,9 +8,14 @@
     <!-- DETAIL E REMOVE-->
     <section>
         <app-todo-preview *ngFor="let todo of todosList | async" [todo]="todo" (detailEvent)="showDetail(todo)" (removeEvent)="removeTodo(todo)"></app-todo-preview>
+        
     </section>
 
-    <section>
-        <router-outlet></router-outlet>
-    </section>
+    <ng-container *ngIf="viewed">
+        <section>
+            <router-outlet></router-outlet>
+        </section>
+    </ng-container>
+    
+    
 </div>
