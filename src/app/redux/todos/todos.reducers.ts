@@ -18,7 +18,7 @@ const todosReducersFun = createReducer(
     initialState, //stato inizialle dell'applicativo
     on(initTodos, (state, { todos }) => ({ ...state, todos: todos })),
     on(insertTodo, (state, { todo }) => ({ ...state, todos: [...state.todos, todo] })),
-    on(removeTodo, (state, { id }) => ({ ...state, todos: state.todos.filter(item => item.id !== id) })),
+    on(removeTodo, (state, { todo }) => ({ ...state, todos: state.todos.filter(item => item.id !== todo.id) })),
     on(editTodo, (state, { todo }) => ({ ...state, todos: state.todos.map(item => item.id === todo.id ? todo : item) }))
     //State iniziale, veriabile da passare - aggiorno lo state del todo
 );

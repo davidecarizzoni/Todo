@@ -25,7 +25,7 @@ export class TodosComponent implements OnInit {
   }
 
   removeTodo(todo: Todo){
-    this.todosFacadeService.removeTodo(todo.id);
+    this.todosFacadeService.removeTodo(todo);
   }
 
 }

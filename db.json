@@ -9,15 +9,9 @@
   ],
   "todos": [
     {
-      "id": 2,
-      "title": "Compito",
-      "description": "Login with NgRx",
-      "steps": []
-    },
-    {
-      "id": 3,
-      "title": "prova",
-      "description": "prova",
+      "id": 1,
+      "title": "PROVA inserimento",
+      "description": "descrizione",
       "steps": []
     }
   ]

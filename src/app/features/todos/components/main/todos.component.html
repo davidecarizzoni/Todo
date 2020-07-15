@@ -7,8 +7,7 @@
 
     <!-- DETAIL E REMOVE-->
     <section>
-        <app-todo-preview *ngFor="let todo of todosList | async" [todo]="todo" (detailEvent)="showDetail(todo)" (removeEvent)="removeTodo(todo)"></app-todo-preview>
-        
+        <app-todo-preview *ngFor="let todo of todosList | async" [todo]="todo" (detailEvent)="showDetail(todo)" (removeEvent)="removeTodo(todo)"></app-todo-preview>  
     </section>
 
     <ng-container>

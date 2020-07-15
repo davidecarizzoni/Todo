@@ -35,7 +35,7 @@ export class TodoEditComponent implements OnInit, OnDestroy {
   }
 
   editForm(todo: Todo) {
-    this.todosFacadeService.editTodo(todo);
+    this.todosFacadeService.updateTodo(todo);
   }
 
   undo(todo: Todo) {
