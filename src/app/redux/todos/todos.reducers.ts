@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { Todo } from '../../core/model/todo.interface';
-import { initTodos, addTodo, removeTodo, editTodo } from './todos.actions';
+import { initTodos, removeTodo, editTodo, insertTodo } from './todos.actions';
 
 // state
 export interface TodoState {
@@ -17,7 +17,7 @@ export const initialState: TodoState = {
 const todosReducersFun = createReducer(
     initialState, //stato inizialle dell'applicativo
     on(initTodos, (state, { todos }) => ({ ...state, todos: todos })),
-    on(addTodo, (state, { todo }) => ({ ...state, todos: [...state.todos, todo] })),
+    on(insertTodo, (state, { todo }) => ({ ...state, todos: [...state.todos, todo] })),
     on(removeTodo, (state, { id }) => ({ ...state, todos: state.todos.filter(item => item.id !== id) })),
     on(editTodo, (state, { todo }) => ({ ...state, todos: state.todos.map(item => item.id === todo.id ? todo : item) }))
     //State iniziale, veriabile da passare - aggiorno lo state del todo

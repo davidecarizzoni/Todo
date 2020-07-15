@@ -12,22 +12,16 @@ import { selectTodos } from 'src/app/redux/todos';
 })
 export class TodosComponent implements OnInit {
 
-  viewed: boolean = false;
-
   get todosList(): Observable<Todo[]> {
     return this.store.pipe(select(selectTodos));
   }
 
   constructor(private todosFacadeService: TodosFacadeService, private store: Store) { }
 
-  ngOnInit(): void {
-    this.todosFacadeService.initTodo();
-  }
+  ngOnInit(): void {}
 
   showDetail(todo: Todo) {
     this.todosFacadeService.goToDetail(todo.id);
-    this.viewed = !this.viewed;
-    console.log(this.viewed);
   }
 
   removeTodo(todo: Todo){

@@ -14,6 +14,13 @@ export class TodosNavigationEffects {
         })
     ), { dispatch: false });
 
+    goToHome$ = createEffect(() => this.actions$.pipe(
+        ofType(goToDetail),
+        tap(action => {
+            this.todosFacadeService.goToHome();
+        })
+    ), { dispatch: false });
+
     constructor(private actions$: Actions,
         private todosFacadeService: TodosFacadeService) {
     }

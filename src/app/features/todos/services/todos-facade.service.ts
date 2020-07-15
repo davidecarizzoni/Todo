@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { TodosServerService } from 'src/app/core/services/todos-server.service';
 import { Store } from '@ngrx/store';
-import { addTodo, editTodo, initTodos} from 'src/app/redux/todos/todos.actions';
+import { insertTodo, editTodo, initTodos} from 'src/app/redux/todos/todos.actions';
 import { Router } from '@angular/router';
 import { Todo } from 'src/app/core/model/todo.interface';
 
@@ -21,7 +21,7 @@ export class TodosFacadeService {
 
   addTodo(todo: Todo) {
     this.todosServerService.addTodo(todo).subscribe((item: Todo) => {
-      this.store.dispatch(addTodo({todo: item}));
+      this.store.dispatch(insertTodo({todo: item}));
       this.goToTodosHome();
     });
   }
