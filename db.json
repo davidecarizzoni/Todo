@@ -12,19 +12,22 @@
       "id": 1,
       "title": "PROVA inserimento",
       "description": "descrizione",
-      "steps": []
+      "steps": [],
+      "users": []
     },
     {
       "id": 2,
       "title": "df",
       "description": "df",
-      "steps": []
+      "steps": [],
+      "users": ["davidecarizzoni"]
     },
     {
       "id": 3,
       "title": "PROVA DOPO ELIMINAZINOE SERVER SERVICE",
       "description": "PROVA",
-      "steps": []
+      "steps": [],
+      "users": ["davidecarizzoni"]
     }
   ]
 }
