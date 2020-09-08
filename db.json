@@ -4,7 +4,8 @@
       "id": 0,
       "username": "davidecarizzoni",
       "name": "Davide",
-      "surname": "Carizzoni"
+      "surname": "Carizzoni",
+      "password": "1234"
     }
   ],
   "todos": [
