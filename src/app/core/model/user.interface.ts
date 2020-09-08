@@ -2,7 +2,7 @@ export interface User {
     username: string;
     name: string;
     surname: string;
-    passoword:string;
+    password: string;
 }
 
 // export interface User {

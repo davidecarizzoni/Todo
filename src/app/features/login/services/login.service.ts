@@ -13,6 +13,7 @@ export class LoginService {
 
   executeLogin(username: string, password: string) {
     console.log("LOGIN SERVICE");
+    
     this.authService.doLogin(username, password).subscribe((users: User[]) => {
       if (users && users.length > 0) {
         sessionStorage.setItem("user", JSON.stringify(users[0]));
