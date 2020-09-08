@@ -1,7 +1,7 @@
 import { TodosFacadeService } from './../services/todos-facade.service';
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { goToDetail } from './todos-navigation.actions';
+import { goToDetail, goToLogin } from './todos-navigation.actions';
 import { tap } from 'rxjs/operators';
 
 @Injectable()
@@ -18,6 +18,13 @@ export class TodosNavigationEffects {
         ofType(goToDetail),
         tap(action => {
             this.todosFacadeService.goToHome();
+        })
+    ), { dispatch: false });
+
+    goToLogin$ = createEffect(() => this.actions$.pipe(
+        ofType(goToLogin),
+        tap(action => {
+            this.todosFacadeService.goToLogin();
         })
     ), { dispatch: false });
 

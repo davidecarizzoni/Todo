@@ -45,5 +45,9 @@ export class TodosFacadeService {
     this.router.navigateByUrl('/todos');
   }
 
+  goToLogin(){
+    this.router.navigateByUrl('/login');
+  }
+
 
 }

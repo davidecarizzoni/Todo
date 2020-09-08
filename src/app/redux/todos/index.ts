@@ -6,6 +6,7 @@ import { UsersState } from '../users/users.reducers';
 import { User } from 'src/app/core/model/user.interface';
 
 export const selectTodosState = (state: AppState) => state.todoState;
+
 export const selectTodos = createSelector(
     selectTodosState,
     (state: TodoState) => state.todos
